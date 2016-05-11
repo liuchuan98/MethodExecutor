@@ -5,10 +5,14 @@ it use C# reflection and xml info of dll to create a userface, which is used for
 # How to use
 1. Write you project, add some classes with some static method, add xml note info in the method which you'd like to expose.
    In the src, "MethodProvider" is a sample example.
+
 2. In VS, open properites of the project, "Build"=>"XML documentation file", enable it.
-3. Add project "MethodExecutor" into the whole project, add reference of your own project(Here is "MethodProvider"), add your assembly and your classes, Here is "MethodProvider" and "IOHelper"(split by ;)
+
+3. Add project "MethodExecutor" into the whole project, add reference of your own project(Here is "MethodProvider"), add your assembly and your classes, Here is "MethodProvider" and "IOHelper"(support multi-classes splited by ";")
+
 4. Build MethodExecutor, then you can use like:
    1) print "MethodExecutor" directly, will list all methods:
+
     -----------------------------------------------
     IOHelper.CompareBinary
          Compare two file as binary mode.
@@ -22,7 +26,9 @@ it use C# reflection and xml info of dll to create a userface, which is used for
     IOHelper.GenFileList
         Generate file list for one folder.
     -----------------------------------------------
+
    2) print 'MethodExecutor -h IOHelper.CompareBinary", will show detail info of method:
+   
     IOHelper.CompareBinary
     Summary:
             Compare two file as binary mode.
@@ -33,6 +39,7 @@ it use C# reflection and xml info of dll to create a userface, which is used for
             True if equal, otherwise false.
     Boolean CompareBinary(System.String leftFile, System.String rightFile)
     -----------------------------------------------
+    
     3) print "MethodExecutor IOHelper.CompareBinary a.txt b.txt" will execute it, like:
     False
 
